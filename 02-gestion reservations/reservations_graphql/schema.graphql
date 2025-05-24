@@ -1,0 +1,33 @@
+type Reservation {
+id: ID!
+utilisateur: String!
+salle: String!
+date: String!
+heure: String!
+}
+
+type Query {
+reservations: [Reservation]
+reservationById(id: ID!): Reservation
+reservationsParSalle(salle: String): [Reservation]
+}
+
+type Mutation {
+addReservation(
+utilisateur: String!,
+salle: String!,
+date: String!,
+heure: String!
+): Reservation
+
+updateReservation(
+id: ID!,
+utilisateur: String,
+salle: String,
+date: String,
+heure: String
+): Reservation
+
+deleteReservation(id: ID!): Reservation
+deleteAllReservations: String
+}
