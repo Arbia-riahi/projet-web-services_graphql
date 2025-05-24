@@ -1,0 +1,34 @@
+type Freelance {
+  id: ID
+  nom: String
+  prenom: String
+  email: String
+  competences: [String]
+  liensPro: [String]
+}
+
+type Query {
+  freelances: [Freelance]
+  freelance(id: ID!): Freelance
+}
+
+type Mutation {
+  addFreelance(
+    nom: String!,
+    prenom: String!,
+    email: String!,
+    competences: [String],
+    liensPro: [String]
+  ): Freelance
+
+  updateFreelance(
+    id: ID!,
+    nom: String,
+    prenom: String,
+    email: String,
+    competences: [String],
+    liensPro: [String]
+  ): Freelance
+
+  deleteFreelance(id: ID!): Freelance
+}
