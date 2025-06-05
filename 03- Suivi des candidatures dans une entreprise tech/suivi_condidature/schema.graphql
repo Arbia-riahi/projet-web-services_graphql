@@ -1,0 +1,21 @@
+type Candidature {
+  id: ID!
+  nom: String!
+  email: String!
+  poste: String!
+  statut: String
+  commentaire: String
+}
+
+type Query {
+  candidatures: [Candidature]
+  candidatureById(id: ID!): Candidature
+  candidaturesParStatut(statut: String): [Candidature]
+}
+
+type Mutation {
+  addCandidature(nom: String!, email: String!, poste: String!, statut: String, commentaire: String): Candidature
+  updateCandidature(id: ID!, statut: String, commentaire: String): Candidature
+  deleteCandidature(id: ID!): Candidature
+  deleteAllCandidatures: String
+}

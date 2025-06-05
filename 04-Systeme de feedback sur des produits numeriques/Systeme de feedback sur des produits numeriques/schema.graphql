@@ -1,0 +1,35 @@
+# Type principal représentant un retour utilisateur
+type Feedback {
+  id: ID!
+  utilisateur: String!
+  produit: String!
+  note: Int!
+  commentaire: String!
+  dateSoumission: String!
+}
+
+# Requêtes disponibles (lecture)
+type Query {
+  feedbacks: [Feedback!]!
+  feedbackById(id: ID!): Feedback
+  feedbacksParProduit(produit: String!): [Feedback!]!
+}
+
+# Mutations disponibles (modification)
+type Mutation {
+  addFeedback(
+    utilisateur: String!
+    produit: String!
+    note: Int!
+    commentaire: String!
+    dateSoumission: String!
+  ): Feedback!
+
+  updateFeedback(
+    id: ID!
+    commentaire: String
+  ): Feedback!
+
+  deleteFeedback(id: ID!): Feedback!
+  deleteAllFeedbacks: String!
+}
